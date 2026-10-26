@@ -1,0 +1,68 @@
+body{transition:background-color 1.2s ease}
+body.night{--bg:#101b2b;background:radial-gradient(ellipse at 70% 45%,#243544 0,transparent 58%),var(--bg)}
+#night-tint{opacity:0;mix-blend-mode:multiply;transition:opacity 1.4s ease}
+.night #night-tint{opacity:.38}
+#window-moon{opacity:0;transition:opacity 1s ease}#window-sun{transition:opacity 1s ease}
+.night #window-moon{opacity:1}.night #window-sun{opacity:0}
+#windowSky stop{transition:stop-color 1.2s ease}.night #windowSky stop:first-child{stop-color:#243758}.night #windowSky stop:last-child{stop-color:#718492}
+.room-discovery{cursor:pointer;outline:none;transition:filter .4s ease}.room-discovery:hover{filter:brightness(1.07)}.room-discovery:focus-visible{outline:2px solid #f0dcaa;outline-offset:4px;border-radius:4px}
+.room-discoveries{display:flex;align-items:center;justify-content:center;gap:5px;flex-wrap:wrap;margin-top:14px;flex:none}
+.room-discoveries button{min-height:36px;padding:8px 12px;border:1px solid transparent;border-radius:18px;background:transparent;color:#b4c6b5;font-size:10px;letter-spacing:.2px;transition:background .4s ease,border-color .4s ease,color .4s ease}
+.room-discoveries button:hover,.room-discoveries button[aria-pressed="true"]{background:#c4d0ad0c;border-color:#a6bb9950;color:#ece5cc}
+.room-discoveries button+button::before{content:""}
+#extras-dialog{width:min(720px,calc(100vw - 24px));max-height:calc(100svh - 24px);margin:auto;overflow-y:auto}
+#extras-dialog .dialog-top{position:sticky;top:0;z-index:2;background:#263b3f}
+#extras-content{padding:16px 22px 12px}
+#extras-title{font:400 38px/1.15 Georgia,serif;letter-spacing:-1px;color:#e9e3cd;margin:0 0 16px}
+#extras-content>p,.postcard>p{font-size:12px;line-height:1.8;color:#b8c9bd}
+.discovery-feedback{min-height:40px;font-size:11px!important;color:#dbcfaa!important;line-height:1.7!important;margin-top:17px}
+@media(max-width:500px){#extras-content{padding:18px 14px}#extras-title{font-size:28px}.room-discoveries{gap:0;margin-top:10px}.room-discoveries button{font-size:9px;padding:8px 10px}.game-stats{gap:10px}}
+@media(prefers-reduced-motion:reduce){body,#night-tint,#window-moon,#window-sun,#windowSky stop,.room-discovery,.room-discoveries button{transition:none}}
+
+.game-heading{display:flex;align-items:baseline;justify-content:space-between;gap:6px 12px;flex-wrap:wrap;margin-bottom:14px}.game-heading #extras-title{margin:0}
+.game-stats{display:flex;gap:16px;margin:0;color:#b8c9bd;font-size:11px;white-space:nowrap}.game-stats b{color:#f0e2b6;font:400 20px Georgia,serif;margin-left:5px}
+.game-canvas{display:block;width:100%;height:auto;border-radius:14px;touch-action:none;outline:none;cursor:crosshair}
+#hoop-canvas{aspect-ratio:640/400;max-height:52svh;object-fit:contain}
+.game-canvas:focus-visible{outline:2px solid #f0dcaa;outline-offset:3px}
+.game-help{font-size:11px!important;line-height:1.7!important;margin:12px 0 0}.game-help kbd{display:inline-block;width:auto;height:auto;min-width:18px;padding:1px 5px;margin:0 1px;border:1px solid #8aa08f80;border-radius:4px;font:10px Consolas,monospace;color:#e5dcbe;text-align:center}
+.crt{position:relative;padding:14px;border-radius:22px;background:linear-gradient(160deg,#8b7f6b,#6a604f);box-shadow:inset 0 2px 0 #a89c84,0 10px 24px #0005}
+.crt canvas{aspect-ratio:480/360;max-height:50svh;object-fit:contain;border-radius:16px;cursor:pointer;background:#0f1f17}
+.crt::after{content:"";position:absolute;inset:14px;border-radius:16px;pointer-events:none;background:repeating-linear-gradient(0deg,#0000 0 2px,#0003 2px 3px),radial-gradient(ellipse at center,#0000 55%,#0006 100%)}
+.snake-pad{display:none;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,44px);gap:6px;justify-content:center;margin-top:12px}
+.snake-pad button{border:1px solid #8aa08f60;border-radius:10px;background:#c4d0ad12;color:#e9e1c6;font-size:18px}.snake-pad [data-turn=up]{grid-column:2}.snake-pad [data-turn=left]{grid-column:1;grid-row:2}.snake-pad [data-turn=down]{grid-column:2;grid-row:2}.snake-pad [data-turn=right]{grid-column:3;grid-row:2}
+@media(pointer:coarse){.snake-pad{display:grid}}
+.tv-screen{animation:tv-flicker 3s steps(2) infinite}@keyframes tv-flicker{50%{fill:#2b4134}}
+#night-light{opacity:0;transition:opacity 1.4s ease}.night #night-light{opacity:1}#night-light .glow{mix-blend-mode:screen}.lamp-light{opacity:0;transition:opacity .4s ease}.lamp-on .lamp-light{opacity:1}
+#room-window.near,#desk-lamp.near{filter:drop-shadow(0 0 5px #fff1c9)}
+.steam path{animation:steam 2.6s ease-in-out infinite}.steam path+path{animation-delay:1.1s}@keyframes steam{0%,100%{opacity:0;transform:translateY(3px)}50%{opacity:.55;transform:translateY(-2px)}}
+.dream{animation:dream-in .8s ease-out both;transform-origin:230px 450px}@keyframes dream-in{from{opacity:0;transform:scale(.5)}}
+.dream-frame{opacity:0;animation:dream-frame 7.5s infinite}.dream-frame.f2{animation-delay:2.5s}.dream-frame.f3{animation-delay:5s}@keyframes dream-frame{0%,100%{opacity:0}6%,30%{opacity:1}36%{opacity:0}}
+.zzz text{opacity:0;animation:zzz 2.7s ease-in-out infinite}.zzz text:nth-child(2){animation-delay:.9s}.zzz text:nth-child(3){animation-delay:1.8s}@keyframes zzz{0%{opacity:0;transform:translate(0,4px)}30%{opacity:.95}100%{opacity:0;transform:translate(7px,-12px)}}
+.breathe{animation:breathe 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes breathe{50%{transform:scaleY(1.05)}}
+@media(prefers-reduced-motion:reduce){.dream,.dream-frame,.zzz text,.breathe{animation:none}.dream-frame.f1,.zzz text{opacity:1}}
+@media(prefers-reduced-motion:reduce){.tv-screen,.steam path{animation:none}#night-light,.lamp-light{transition:none}}
+#extras-dialog .dialog-top{padding:12px 22px}
+.rug-cheat{display:none}.cheat .rug-cheat{display:inline}.cheat .rug-normal{display:none}
+
+/* Secrets: counter pill in the room bar, toast on each new find. */
+.room-topline>.secrets-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border:1px solid #5c716c66;border-radius:20px;color:#c9d6c3;font-size:9px;letter-spacing:.4px;white-space:nowrap}
+.secrets-pill .icon{width:12px;height:12px}.secrets-pill b{font-weight:700;color:#f0e2b6}
+#room-dialog .room-topline>.secrets-pill{margin-left:4px}
+@media(max-width:420px){.secrets-word{display:none}.room-topline>.secrets-pill{padding:4px 8px}}
+.secret-toast{position:absolute;left:50%;top:14px;z-index:5;transform:translate(-50%,-6px);max-width:calc(100% - 24px);padding:8px 14px;border:1px solid #d8c79f80;border-radius:20px;background:#1d3034f0;color:#f0e2b6;font-size:11px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 8px 24px #0006;opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s ease}
+.secret-toast.show{opacity:1;transform:translate(-50%,0)}
+/* Speech bubble is HTML so it stays crisp and untinted at night. */
+#object-flowers{transition:filter .3s ease}#object-flowers:is(:hover,:focus-visible,.near){filter:drop-shadow(0 0 3px #fff3c8)}
+.room-bubble{position:absolute;z-index:4;max-width:220px;padding:8px 12px;border-radius:12px;background:#fffaf0;color:#3b4a44;font:italic 12px/1.4 Georgia,serif;text-align:center;box-shadow:0 6px 18px #0005;transform:translate(-50%,calc(-100% - 10px)) scale(.9);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+.room-bubble::after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;background:#fffaf0;transform:translateX(-50%) rotate(45deg)}
+.room-bubble.show{opacity:1;transform:translate(-50%,calc(-100% - 10px))}
+/* Terminal: same palette as the rug. */
+.term{background:#33464a;border:1px solid #4b6266;border-radius:12px;padding:14px 16px;font:13px/1.6 Consolas,'Courier New',monospace;color:#d8e6d2;cursor:text}
+.term-out{max-height:min(46svh,360px);overflow-y:auto;overscroll-behavior:contain;-webkit-user-select:text;user-select:text}
+.term-out p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}.term-out .term-cmd{color:#8fbf8a}.term-out .term-dim{color:#a9bbb1}
+.term-out a{color:#e3c99a;text-decoration:underline;text-underline-offset:2px}
+.term-line{display:flex;align-items:center;gap:8px;margin-top:6px}.term-prompt{color:#8fbf8a}
+.term-line input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#d8e6d2;font:inherit;caret-color:#8fbf8a;padding:2px 0}
+@media(max-width:600px),(pointer:coarse){.term,.term-line input{font-size:16px}}
+#object-flowers{transform-box:fill-box;transform-origin:50% 100%}#object-flowers.wobble{animation:wobble .6s ease-in-out}@keyframes wobble{20%{transform:rotate(-5deg)}40%{transform:rotate(4deg)}60%{transform:rotate(-3deg)}80%{transform:rotate(1.5deg)}}
+@media(prefers-reduced-motion:reduce){#object-flowers.wobble{animation:none}.secret-toast,.room-bubble{transition:none}}
